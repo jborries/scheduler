@@ -1,0 +1,14 @@
+<div class="" ng-controller='appointmentController'>
+  <p ng-repeat='error in errors'>{{error.message}}</p>
+  <form class="" ng-submit='addAppointment(appointment)'>
+        <label>Date:</label>
+        <input type="date" name="" value="" ng-model='appointment.date'><br>
+        <label>Time:</label>
+        <input type="time" name="" value="" ng-model='appointment.time'><br>
+        <label>Complain: </label>
+        <input type="text" name="" value="" ng-model='appointment.complain'><br>
+        <input type="hidden" name="" value="" ng-model='appointment._creator'>
+        <input type="submit" name="submit" value="submit">
+        <a href="#!/dashboard">Cancel</a>
+    </form>
+</div>

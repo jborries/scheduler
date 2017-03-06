@@ -1,0 +1,27 @@
+<div class="" ng-controller='dashboardController'>
+  <!--<h1>doctor's appointment</h1>-->
+  <a href="#!/logout">Logout</a>
+  <p><strong>Patient Name:</strong> {{current_user.name}}</p>
+  <label>Search</label>
+  <input type="text" ng-model="search_input"><br>
+  <table>
+    <thead>
+      <tr>
+        <td><strong>Date</strong></td>
+        <td><strong>Time</strong></td>
+        <td><strong>Patient Name</strong></td>
+        <td><strong>Complain</strong></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="appointment in appointments | filter:search_input | orderBy:['date','time']">
+        <td>{{appointment.date | date:'MMM dd, yyyy'}}</td>
+        <td>{{appointment.time | date:'hh:mm a'}}</td>
+        <td>{{appointment._creator.name}}</td>
+        <td>{{appointment.complain}} <button ng-show='current_user._id==appointment._creator._id' ng-click='Delete(appointment)' type="button" name="Cancel">Cancel</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <a href="#!/appointment">Add A New Patient Appointment</a>
+</div>
